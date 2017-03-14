@@ -201,16 +201,50 @@ ul {
   @media (max-width: 640px) {
     height: 10vh;
 
-    &__patty {
+    &__vpatty {
+      transform: scale(0.8);
+    }
+    &__hpatty {
       transform: scale(0.8);
     }
 
     &--active {
-      .burger__patty {
+      .burger__vpatty {
         transform: scale(0.8) rotate(90deg);
+      }
+      .burger__hpatty {
+        transform: scale(0.8) rotate(0deg);
       }
     }
   }
+}
+
+.carousel-panel {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.carousel {
+  background: inherit;
+  margin-top: 15vh;
+}
+
+.carousel-cell {
+  width: 66%;
+  height: 80vh;
+  margin-right: 10px;
+  background: linear-gradient(0deg, rgba(255,255,255,.2),rgba(255,255,255,.2));
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+}
+
+/* cell number */
+.carousel-text {
+  display: block;
+  text-align: center;
+  line-height: 200px;
+  font-size: 20px;
+  color: black;
 }
 
 .panel {
