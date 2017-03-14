@@ -1,13 +1,13 @@
-var menu = document.querySelector('.nav__vlist');
+var menu = document.querySelector('.nav__hlist');
 var burger = document.querySelector('.burger');
 var doc = $(document);
 var l = $('.scrolly');
 var panel = $('.panel');
-var vh = $(window).height();
+var vw = $(window).width();
 
 var openMenu = function() {
   burger.classList.toggle('burger--active');
-  menu.classList.toggle('nav__vlist--active');
+  menu.classList.toggle('nav__hlist--active');
 };
 
 // reveal content of first panel by default
