@@ -3,6 +3,9 @@
 
 $color-stack:
   (group: primary, id: normal, color: #fff),
+  (group: primary, id: c1, color: red),
+  (group: primary, id: c2, color: blue),
+  (group: primary, id: c3, color: green),
   (group: complement, id: normal, color: #444);
 
 @function color($group, $shade:normal, $transparency:1) {
