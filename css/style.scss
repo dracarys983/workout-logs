@@ -1,243 +1,271 @@
 ---
 ---
 
-$color-stack:
-  (group: primary, id: normal, color: #fff),
-  (group: complement, id: normal, color: #444);
-
-@function color($group, $shade:normal, $transparency:1) {
-  @each $color in $color-stack {
-    $c-group: map-get($color, group);
-    $c-shade: map-get($color, id);
-    @if($group == map-get($color, group) and $shade == map-get($color, id)){
-      @return rgba(map-get($color, color), $transparency);
-    }
-  }
-}
-
-$b-height: 60px; //Height (and width) of the burger menu
-$b-margin-top: 30px; //Burger menu margin (distance from top)
-$b-margin-left: 30px; //Burger menu margin (distance from left)
-$b-border-width: 2px; //Width of the borders and 'buns'
-$b-bun-width: 25px; //Width of the 'buns'
-$b-bun-height: $b-border-width; //Height of the 'buns'
-$b-border-radius: 50%; //Change the border radius of the menu
-
-$b-trans-speed: .4s; //Transition speed settings
-$b-transition: all $b-trans-speed ease; //Transitions
-
-$b-font-size: 24px; //Font size of brand and links
-$b-font-family: Helvetica-Neue, Helvetica, Arial, sans-serif; //Font family of the brand and links
-$b-font-weight: 300; //Font weight of brand and links
-$b-txt-pad: 30px; //Left padding on both brand and links
-
-$b-line-height: ($b-height / 2 - ($b-font-size / 2.8)); //Vertically centers brand to menu
-$b-txt-pad-top: ($b-margin-top + $b-height + $b-txt-pad); //Top margin for first link element
-$b-bun-width-half: ($b-bun-width / 2); //Half bun width used for calculation
-$b-pad-left: ($b-height / 2 - $b-bun-width-half - 2); //Horizontally centers bun in menu
-$b-pad-top: ($b-height / 2 - $b-bun-width-half); //Vertically centers bun in menu
-
-@keyframes slideInLeft {
-  0% {
-    transform: translate3d(-250px, 0, 0);
-    visibility: visible;
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes slideOutLeft {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  100% {
-    transform: translate3d(-250px, 0, 0);
-    visibility: hidden;
-  }
-}
+$nav-bg: #2b3033;
+$blue: #5fc7ea;
+$red: #e68568;
+$yellow: #e6d068;
+$green: #68e6ac;
+$ease: all .5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$content-animation: scale(0.7) rotateX(-230deg);
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  &:after {
-    background: color(primary);
-    content: '';
-    height: 100%;
-    left: 0;
-    opacity: 0;
-    overflow: auto;
-    padding: 0;
+  font-family: 'Montserrat';
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100px;
+  backface-visibility: hidden;
+  
+  &__list {
+    display: flex;
+    flex-flow: column wrap;
+    height: 85vh;
+    transform: translate(0, -100%);
+    transition: $ease;
+    
+    &--active {
+      transform: translate(0, 0);
+    }
+  }
+  
+  &__item {
+    flex: 1;
+    position: relative;
+  }
+  
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: 0;
-    transition: $b-transition;
+    height: 100%;
     width: 100%;
-  }
-
-  &.open {
-    overflow: hidden;
-  }
-
-  &.open:after {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-.b-nav {
-  position: absolute;
-  z-index: 11;
-
-  &:not(.open) {
-    visibility: hidden;
-  }
-
-  li {
-    color: color(complement);
-    list-style-type: none;
-    padding: 10px;
-    text-align: left;
-    transform: translateX(-250px);
-  }
-
-  li:not(.open) {
-    animation-duration: $b-trans-speed;
-    animation-fill-mode: both;
-    animation-name: slideOutLeft;
-  }
-
-  li:first-child {
-    padding-top: $b-txt-pad-top;
-  }
-
-  &.open {
-    visibility: visible;
-
-    li {
-      animation-duration: $b-trans-speed;
-      animation-fill-mode: both;
-      animation-name: slideInLeft;
-    }
-  }
-}
-
-.b-link {
-  background: transparent;
-  border-left: color(complement, normal, 0) solid $b-border-width;
-  color: color(complement);
-  font-family: $b-font-family;
-  font-size: $b-font-size;
-  font-weight: $b-font-weight;
-  margin-left: $b-margin-left;
-  text-decoration: none;
-  transition: $b-transition;
-  width: auto;
-
-  &:hover,
-  &--active {
-    border-left: color(complement) solid $b-border-width;
-    padding-left: $b-txt-pad;
-  }
-}
-
-.b-menu {
-  background: color(primary);
-  border: color(primary) solid $b-border-width;
-  border-radius: $b-border-radius;
-  cursor: pointer;
-  display: inline-block;
-  height: $b-height;
-  padding-left: $b-pad-left;
-  padding-top: $b-pad-top;
-  position: relative;
-  transition: $b-transition;
-  user-select: none;
-  width: $b-height;
-  z-index: 12;
-
-  &:hover {
-    border: color(complement) solid $b-border-width;
-  }
-}
-
-.b-bun {
-  background: color(complement);
-  position: relative;
-  transition: $b-transition;
-
-  &--top {
-    height: $b-bun-height;
     top: 0;
-    width: $b-bun-width;
+    left: 0;
+    text-decoration: none;
+    font-size: 24px;
+    background: $nav-bg;
+    transition: $ease;
+    
+    &:hover {
+      background: mix(black, $nav-bg, 10);
+    }
   }
-
-  &--mid {
-    height: $b-bun-height;
-    top: 8px;
-    width: $b-bun-width;
-  }
-
-  &--bottom {
-    height: $b-bun-height;
-    top: 16px;
-    width: $b-bun-width;
+  
+  @media (max-width: 640px) {
+    width: 70px;
+    
+    &__list {
+      height: 90vh;
+    }
   }
 }
 
-.b-brand {
-  color: color(primary);
-  font-family: $b-font-family;
-  font-size: $b-font-size;
-  font-weight: $b-font-weight;
-  margin-left: $b-txt-pad;
+.burger {
+  height: 15vh;
   position: relative;
-  text-decoration: none;
-  top: -$b-line-height;
-  transition: $b-transition;
-  z-index: 13;
-}
-
-.b-container {
-  height: $b-height;
-  left: $b-margin-left;
-  position: absolute;
-  top: $b-margin-top;
-
-  &:hover:not(.open) {
-    .bun-top,
-    .bun-mid,
-    .bun-bottom {
-      background: color(primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  background: $nav-bg;
+  cursor: pointer;
+  transition: $ease;
+  
+  &:hover {
+    background: mix(black, $nav-bg, 10);
+  }
+  
+  &__patty {
+    position: relative;
+    height: 2px;
+    width: 40px;
+    background: white;
+    
+    &:before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: white;
+    }
+    
+    &:after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: white;
     }
   }
-
-  &.open {
-    .b-main {
-      border: color(complement) solid $b-border-width;
+  
+  &__patty,
+  &__patty:before,
+  &__patty:after {
+    will-change: transform;
+    transition: $ease;
+  }
+  
+  &--active {
+    .burger__patty {
+      transform: rotate(90deg);
+      &:before {
+        transform: rotate(-45deg) translate(-7px,-7px) scaleX(0.7);
+      }
+      
+      &:after {
+        transform: rotate(45deg) translate(-7px,7px) scaleX(0.7);
+      }
     }
-
-    .b-bun--top {
-      background: color(complement);
-      top: 9px;
-      transform: rotate(45deg);
+  }
+  
+  @media (max-width: 640px) {
+    height: 10vh;
+    
+    &__patty {
+      transform: scale(0.8);
     }
-
-    .b-bun--mid {
-      opacity: 0;
+    
+    &--active {
+      .burger__patty {
+        transform: scale(0.8) rotate(90deg);
+      }
     }
+  }
+}
 
-    .b-bun--bottom {
-      background: color(complement);
-      top: 5px;
-      transform: rotate(-45deg);
+.panel {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  &__wrapper {
+    padding: 7vh 7vw;
+    perspective: 1000px;
+  }
+  
+  &__content {
+    will-change: transform;
+    transform: $content-animation;
+    transform-origin: center 80%;
+    opacity: 0;
+    transition: $ease;
+    
+    &--active {
+      transform: none;
+      opacity: 1;
     }
+  }
+  
+  &__headline {
+    font-weight: 700;
+    opacity: 0.8;
+    font-size: 48px;
+    margin: 0 0 25px 0;
+  }
+  
+  p {
+    margin: 0 0 25px 0;
+    color: lighten(black, 10);
+    font-size: 24px;
+    max-width: 800px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__block {
+    height: 3px;
+    background: rgba(black, 0.2);
+    margin: 0 0 25px 0;
+  }
+  
+  @media (max-width: 640px) {
+    
+    &__headline {
+      font-size: 36px;
+    }
+    
+    &__wrapper {
+      padding: 10vh 10vw;
+    }
+    
+    p {
+      font-size: 16px;
+    }
+  }
+}
 
-    .b-brand {
-      color: color(complement);
+.c-blue {
+  color: $blue;
+}
+
+.c-red {
+  color: $red;
+}
+
+.c-green {
+  color: $green;
+}
+
+.c-yellow {
+  color: $yellow;
+}
+
+.b-blue {
+  background: $blue;
+}
+
+.b-red {
+  background: $red;
+}
+
+.b-green {
+  background: $green;
+}
+
+.b-yellow {
+  background: $yellow;
+}
+
+.logo {
+  position: fixed;
+  bottom: 3vh;
+  right: 3vw;
+  z-index: 2;
+  
+  
+  img {
+    width: 65px;
+    transition: $ease;
+    transform: rotate(0);
+  
+    &:hover {
+      transform: rotate(180deg) scale(1.1);
     }
   }
 }
