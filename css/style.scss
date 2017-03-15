@@ -26,6 +26,20 @@ ul {
   margin: 0;
 }
 
+table {
+  text-align: center;
+}
+
+th, td {
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.regime-table {
+  margin: 5px;
+  width: 80%;
+}
+
 .nav {
   position: fixed;
   z-index: 1;
@@ -237,16 +251,10 @@ ul {
   margin-right: 10px;
   background: linear-gradient(0deg, rgba(255,255,255,.2),rgba(255,255,255,.2));
   border-radius: 5px;
-  counter-increment: carousel-cell;
-}
-
-/* cell number */
-.carousel-text {
-  display: block;
-  text-align: center;
-  line-height: 200px;
-  font-size: 20px;
-  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .panel {
