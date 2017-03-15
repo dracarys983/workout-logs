@@ -32,15 +32,28 @@ permalink: /progress/
       </ul>
     </nav>
 
+    {% assign year = site.time | date: '%Y' %}
+    {% assign month = site.time | date: '%m' %}
+    {% assign today = site.time | date: '%d' %}
+    {% assign prev1 = site.time | date: '%d' | minus: 1 %}
+    {% assign prev2 = site.time | date: '%d' | minus: 2 %}
+    {% assign prev3 = site.time | date: '%d' | minus: 3 %}
+    {% assign prev4 = site.time | date: '%d' | minus: 4 %}
+    {% assign prev5 = site.time | date: '%d' | minus: 5 %}
+    {% assign prev6 = site.time | date: '%d' | minus: 6 %}
     <section class="carousel-panel b-yellow" id="1">
-      <div class="carousel" data-flickity='{"wrapAround": true, "freeScroll": true}'>
-        <div class="carousel-cell carousel-text">1</div>
-        <div class="carousel-cell carousel-text">2</div>
-        <div class="carousel-cell carousel-text">3</div>
-        <div class="carousel-cell carousel-text">4</div>
-        <div class="carousel-cell carousel-text">5</div>
-        <div class="carousel-cell carousel-text">6</div>
-        <div class="carousel-cell carousel-text">7</div>
+      <div class="carousel" data-flickity='{"wrapAround": false, "freeScroll": true, "initialIndex": 6}'>
+        <div class="carousel-cell">1</div>
+        <div class="carousel-cell">2</div>
+        <div class="carousel-cell">3</div>
+        <div class="carousel-cell">4</div>
+        <div class="carousel-cell">5</div>
+        <div class="carousel-cell">
+          {% include logs/{{ year }}/{{ month }}/{{ prev1 }}.html %}
+        </div>
+        <div class="carousel-cell">
+          {% include logs/{{ year }}/{{ month }}/{{ today }}.html %}
+        </div>
       </div>
     </section>
     <script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
