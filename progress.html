@@ -46,8 +46,12 @@ permalink: /progress/
         <div class="carousel-cell">1</div>
         <div class="carousel-cell">2</div>
         <div class="carousel-cell">3</div>
-        <div class="carousel-cell">4</div>
-        <div class="carousel-cell">5</div>
+        <div class="carousel-cell">
+          {% include logs/{{ year }}/{{ month }}/{{ prev3 }}.html %}
+        </div>
+        <div class="carousel-cell">
+          {% include logs/{{ year }}/{{ month }}/{{ prev2 }}.html %}
+        </div>
         <div class="carousel-cell">
           {% include logs/{{ year }}/{{ month }}/{{ prev1 }}.html %}
         </div>
