@@ -1,7 +1,5 @@
 markdown                 : kramdown
 
-#url                      : "localhost:4000"
 url                      : "https://dracarys983.github.io"
-#baseurl                  : ""
 baseurl                  : "workout-logs"
 repository               : "dracarys983/workout-logs"

@@ -11,7 +11,7 @@ If somebody finds this and has any ideas on how to improve it, you're most
 welcome to submit a pull request.
 By all means, I'd be happy if this helps someone, just the way it is helping me.
 
-# License for Theme used (MIT)
+# License for [Theme](http://codepen.io/ettrics/pen/ogRaRv) used
 
 ```
 The MIT License (MIT)
@@ -36,7 +36,7 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
-# License for iDangerous Swipe (Slideshow)
+# License for [iDangerous Swipe](http://idangero.us/swiper/#.WMzpVhJ9634)
 
 ```
 The MIT License (MIT)
