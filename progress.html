@@ -51,7 +51,9 @@ permalink: /progress/
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide"></div>
-          <div class="swiper-slide"></div>
+          <div class="swiper-slide">
+            {% include logs/{{ year }}/{{ month }}/{{ prev5 }}.html %}
+          </div>
           <div class="swiper-slide">
             {% include logs/{{ year }}/{{ month }}/{{ prev4 }}.html %}
           </div>
