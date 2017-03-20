@@ -50,7 +50,9 @@ permalink: /progress/
     <section class="swiper-panel b-yellow" id="1">
       <div class="swiper-container">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"></div>
+          <div class="swiper-slide">
+            {% include logs/{{ year }}/{{ month }}/{{ prev6 }}.html %}
+          </div>
           <div class="swiper-slide">
             {% include logs/{{ year }}/{{ month }}/{{ prev5 }}.html %}
           </div>
