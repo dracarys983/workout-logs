@@ -39,45 +39,45 @@ permalink: /progress/
     </nav>
 
     {% assign year = site.time | date: '%Y' %}
-    {% assign month = site.time | date: '%m' %}
-    {% assign today = site.time | date: '%d' %}
-    {% assign monthind = site.time | date: '-%m' | minus: 1 %}
+    {% assign month = site.time | date: '%-m' %}
+    {% assign today = site.time | date: '%-d' %}
+    {% assign monthind = site.time | date: '%-m' | minus: 2 %}
     {% assign prevmonthdays = site.daysinmonths[monthind] %}
     {% assign prev1 = today | minus: 1 %}
     {% assign month1 = month %}
-    {% if today == '01' %}
+    {% if today == '1' %}
       {% assign prev1 = prevmonthdays %}
-      {% assign month1 = month | minus: 1 %}
+      {% assign month1 = month1 | minus: 1 %}
     {% endif %}
     {% assign prev2 = prev1 | minus: 1 %}
-    {% assign month2 = month %}
-    {% if today == '02' %}
+    {% assign month2 = month1 %}
+    {% if today == '2' %}
       {% assign prev2 = prevmonthdays %}
-      {% assign month2 = month | minus: 1%}
+      {% assign month2 = month2 | minus: 1 %}
     {% endif %}
     {% assign prev3 = prev2 | minus: 1 %}
-    {% assign month3 = month %}
-    {% if today == '03' %}
+    {% assign month3 = month2 %}
+    {% if today == '3' %}
       {% assign prev3 = prevmonthdays %}
-      {% assign month3 = month | minus: 1 %}
+      {% assign month3 = month3 | minus: 1 %}
     {% endif %}
     {% assign prev4 = prev3 | minus: 1 %}
-    {% assign month4 = month %}
-    {% if today == '04' %}
+    {% assign month4 = month3 %}
+    {% if today == '4' %}
       {% assign prev4 = prevmonthdays %}
-      {% assign month4 = month | minus: 1 %}
+      {% assign month4 = month4 | minus: 1 %}
     {% endif %}
     {% assign prev5 = prev4 | minus: 1 %}
-    {% assign month5 = month %}
-    {% if today == '05' %}
+    {% assign month5 = month4 %}
+    {% if today == '5' %}
       {% assign prev5 = prevmonthdays %}
-      {% assign month5 = month | minus: 1 %}
+      {% assign month5 = month5 | minus: 1 %}
     {% endif %}
     {% assign prev6 = prev5 | minus: 1 %}
-    {% assign month6 = month %}
-    {% if today == '06' %}
+    {% assign month6 = month5 %}
+    {% if today == '6' %}
       {% assign prev6 = prevmonthdays %}
-      {% assign month6 = month | minus: 1 %}
+      {% assign month6 = month6 | minus: 1 %}
     {% endif %}
     <section class="swiper-panel b-yellow" id="1">
       <div class="swiper-container">
