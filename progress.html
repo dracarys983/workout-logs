@@ -44,49 +44,61 @@ permalink: /progress/
     {% assign monthind = site.time | date: '-%m' | minus: 1 %}
     {% assign prevmonthdays = site.daysinmonths[monthind] %}
     {% assign prev1 = today | minus: 1 %}
+    {% assign month1 = month %}
     {% if today == '01' %}
       {% assign prev1 = prevmonthdays %}
+      {% assign month1 = month | minus: 1 %}
     {% endif %}
     {% assign prev2 = prev1 | minus: 1 %}
+    {% assign month2 = month %}
     {% if today == '02' %}
       {% assign prev2 = prevmonthdays %}
+      {% assign month2 = month | minus: 1%}
     {% endif %}
     {% assign prev3 = prev2 | minus: 1 %}
+    {% assign month3 = month %}
     {% if today == '03' %}
       {% assign prev3 = prevmonthdays %}
+      {% assign month3 = month | minus: 1 %}
     {% endif %}
     {% assign prev4 = prev3 | minus: 1 %}
+    {% assign month4 = month %}
     {% if today == '04' %}
       {% assign prev4 = prevmonthdays %}
+      {% assign month4 = month | minus: 1 %}
     {% endif %}
     {% assign prev5 = prev4 | minus: 1 %}
+    {% assign month5 = month %}
     {% if today == '05' %}
       {% assign prev5 = prevmonthdays %}
+      {% assign month5 = month | minus: 1 %}
     {% endif %}
     {% assign prev6 = prev5 | minus: 1 %}
+    {% assign month6 = month %}
     {% if today == '06' %}
       {% assign prev6 = prevmonthdays %}
+      {% assign month6 = month | minus: 1 %}
     {% endif %}
     <section class="swiper-panel b-yellow" id="1">
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            {% include logs/{{ year }}/{{ month }}/{{ prev6 }}.html %}
+            {% include logs/{{ year }}/{{ month6 }}/{{ prev6 }}.html %}
           </div>
           <div class="swiper-slide">
-            {% include logs/{{ year }}/{{ month }}/{{ prev5 }}.html %}
+            {% include logs/{{ year }}/{{ month5 }}/{{ prev5 }}.html %}
           </div>
           <div class="swiper-slide">
-            {% include logs/{{ year }}/{{ month }}/{{ prev4 }}.html %}
+            {% include logs/{{ year }}/{{ month4 }}/{{ prev4 }}.html %}
           </div>
           <div class="swiper-slide">
-            {% include logs/{{ year }}/{{ month }}/{{ prev3 }}.html %}
+            {% include logs/{{ year }}/{{ month3 }}/{{ prev3 }}.html %}
           </div>
           <div class="swiper-slide">
-            {% include logs/{{ year }}/{{ month }}/{{ prev2 }}.html %}
+            {% include logs/{{ year }}/{{ month2 }}/{{ prev2 }}.html %}
           </div>
           <div class="swiper-slide">
-            {% include logs/{{ year }}/{{ month }}/{{ prev1 }}.html %}
+            {% include logs/{{ year }}/{{ month1 }}/{{ prev1 }}.html %}
           </div>
           <div class="swiper-slide">
             {% include logs/{{ year }}/{{ month }}/{{ today }}.html %}
