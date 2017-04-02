@@ -3,3 +3,17 @@ markdown                 : kramdown
 url                      : "https://dracarys983.github.io"
 baseurl                  : "workout-logs"
 repository               : "dracarys983/workout-logs"
+
+daysinmonths:
+  - 31
+  - 28
+  - 31
+  - 30
+  - 31
+  - 30
+  - 31
+  - 31
+  - 30
+  - 31
+  - 30
+  - 31

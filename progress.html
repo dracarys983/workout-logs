@@ -41,12 +41,32 @@ permalink: /progress/
     {% assign year = site.time | date: '%Y' %}
     {% assign month = site.time | date: '%m' %}
     {% assign today = site.time | date: '%d' %}
-    {% assign prev1 = site.time | date: '%d' | minus: 1 %}
-    {% assign prev2 = site.time | date: '%d' | minus: 2 %}
-    {% assign prev3 = site.time | date: '%d' | minus: 3 %}
-    {% assign prev4 = site.time | date: '%d' | minus: 4 %}
-    {% assign prev5 = site.time | date: '%d' | minus: 5 %}
-    {% assign prev6 = site.time | date: '%d' | minus: 6 %}
+    {% assign monthind = site.time | date: '-%m' | minus: 1 %}
+    {% assign prevmonthdays = site.daysinmonths[monthind] %}
+    {% assign prev1 = today | minus: 1 %}
+    {% if today == '01' %}
+      {% assign prev1 = prevmonthdays %}
+    {% endif %}
+    {% assign prev2 = prev1 | minus: 1 %}
+    {% if today == '02' %}
+      {% assign prev2 = prevmonthdays %}
+    {% endif %}
+    {% assign prev3 = prev2 | minus: 1 %}
+    {% if today == '03' %}
+      {% assign prev3 = prevmonthdays %}
+    {% endif %}
+    {% assign prev4 = prev3 | minus: 1 %}
+    {% if today == '04' %}
+      {% assign prev4 = prevmonthdays %}
+    {% endif %}
+    {% assign prev5 = prev4 | minus: 1 %}
+    {% if today == '05' %}
+      {% assign prev5 = prevmonthdays %}
+    {% endif %}
+    {% assign prev6 = prev5 | minus: 1 %}
+    {% if today == '06' %}
+      {% assign prev6 = prevmonthdays %}
+    {% endif %}
     <section class="swiper-panel b-yellow" id="1">
       <div class="swiper-container">
         <div class="swiper-wrapper">
