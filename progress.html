@@ -83,25 +83,53 @@ permalink: /progress/
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            {% include logs/{{ year }}/{{ month6 }}/{{ prev6 }}.html %}
+            {% iffileexists logs/{{ year }}/{{ month6 }}/{{ prev6 }}.html %}
+	    	{% include logs/{{ year }}/{{ month6 }}/{{ prev6 }}.html %}
+	    {% else %}
+	    	{% include default.html %}
+	    {% endiffileexists %} 
           </div>
           <div class="swiper-slide">
-            {% include logs/{{ year }}/{{ month5 }}/{{ prev5 }}.html %}
+            {% iffileexists logs/{{ year }}/{{ month5 }}/{{ prev5 }}.html %}
+	    	{% include logs/{{ year }}/{{ month5 }}/{{ prev5 }}.html %}
+	    {% else %}
+	    	{% include default.html %}
+	    {% endiffileexists %} 
           </div>
           <div class="swiper-slide">
-            {% include logs/{{ year }}/{{ month4 }}/{{ prev4 }}.html %}
+            {% iffileexists logs/{{ year }}/{{ month4 }}/{{ prev4 }}.html %}
+	    	{% include logs/{{ year }}/{{ month4 }}/{{ prev4 }}.html %}
+	    {% else %}
+	    	{% include default.html %}
+	    {% endiffileexists %} 
           </div>
           <div class="swiper-slide">
-            {% include logs/{{ year }}/{{ month3 }}/{{ prev3 }}.html %}
+            {% iffileexists logs/{{ year }}/{{ month3 }}/{{ prev3 }}.html %}
+	    	{% include logs/{{ year }}/{{ month3 }}/{{ prev3 }}.html %}
+	    {% else %}
+	    	{% include default.html %}
+	    {% endiffileexists %} 
           </div>
           <div class="swiper-slide">
-            {% include logs/{{ year }}/{{ month2 }}/{{ prev2 }}.html %}
+            {% iffileexists logs/{{ year }}/{{ month2 }}/{{ prev2 }}.html %}
+	    	{% include logs/{{ year }}/{{ month2 }}/{{ prev2 }}.html %}
+	    {% else %}
+	    	{% include default.html %}
+	    {% endiffileexists %} 
           </div>
           <div class="swiper-slide">
-            {% include logs/{{ year }}/{{ month1 }}/{{ prev1 }}.html %}
+            {% iffileexists logs/{{ year }}/{{ month1 }}/{{ prev1 }}.html %}
+	    	{% include logs/{{ year }}/{{ month1 }}/{{ prev1 }}.html %}
+	    {% else %}
+	    	{% include default.html %}
+	    {% endiffileexists %} 
           </div>
           <div class="swiper-slide">
-            {% include logs/{{ year }}/{{ month }}/{{ today }}.html %}
+            {% iffileexists logs/{{ year }}/{{ month }}/{{ prev }}.html %}
+	    	{% include logs/{{ year }}/{{ month }}/{{ prev }}.html %}
+	    {% else %}
+	    	{% include default.html %}
+	    {% endiffileexists %} 
           </div>
         </div>
         <div class="swiper-pagination"></div>
